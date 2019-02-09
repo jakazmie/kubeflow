@@ -1,5 +1,10 @@
 # Installing Kubeflow on Azure Kubernetes Service
 
+## Install AKS CLI
+```
+az aks install-cli
+```
+
 ## Create AKS
 Create a resource group to host AKS.
 ```
