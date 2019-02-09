@@ -37,8 +37,10 @@ export KUBEFLOW_TAG=v0.4.1
 curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
 ```
 
+**NOTE: If you prepare to install only selected components (recommended for the labs) skip the below step and follow the instructions in each individual lab**.
+
 2. To set up and deploy all Kubeflow components. 
-**If you prepare to install only selected components (recommended for the labs) skip this step and follow the instructions in each individual lab**.
+
 ```
 KFAPP=my-kubeflow
 ${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform none
