@@ -27,7 +27,7 @@ ln -s ~/ksonnet/ks_0.13.1_linux_amd64/ks /usr/local/bin/ks
 ```
 
 ## Install Kubeflow
-1. Download Kubeflow CLI utility - `kfctl.sh`.
+1. Download Kubeflow components.
 ```
 KUBEFLOW_SRC=~/kubeflow
 mkdir ${KUBEFLOW_SRC}
@@ -37,15 +37,12 @@ export KUBEFLOW_TAG=v0.4.1
 curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
 ```
 
-**NOTE: If you prefer to install only selected components (recommended for the labs) skip the below step and follow the instructions in each individual lab**.
-
-2. To set up and deploy all Kubeflow components. 
-
+2. Create **ksonnet** app.
 ```
 KFAPP=my-kubeflow
-${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform none
+mkdir ${KFAPP}
 cd ${KFAPP}
-${KUBEFLOW_SRC}/scripts/kfctl.sh generate k8s
-${KUBEFLOW_SRC}/scripts/kfctl.sh apply k8s
+ks init ks_app --skip-default-registries
+cd ks_app
+ks registry add kubeflow ${KUBEFLOW_SRC}/kubeflow
 ```
-
