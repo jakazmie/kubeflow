@@ -1,14 +1,13 @@
 # TFJOB Quick Start
 
-## Create TFJOB component
-### Install Kubeflow ksonnet prototypes
+## Install TF-JOB-OPERATOR package
 ```
-export  KF_VERSION=v0.4.1
-ks registry add kubeflow-git github.com/kubeflow/kubeflow/tree/${KF_VERSION}/kubeflow
+ks pkg install kubeflow/tf-training
 ```
 
-### Install TF-JOB-OPERATOR package
+## Create TF-JOB-OPERATOR component
 ```
-ks pkg install kubeflow-git/tf-training
+ks generate tf-job-operator tf-job-operator
 ```
+
 
